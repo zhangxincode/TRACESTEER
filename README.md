@@ -4,7 +4,11 @@ TRACESTEER is a research project for mitigating hallucinations in diffusion lang
 
 The project includes training, feedback-based generation, and evaluation entry points designed for LLaDA and Dream, covering TruthfulQA, COPA, StoryCloze, MMLU, Winogrande, and BoolQ.
 
+## Framework
 
+[![TRACESTEER framework: prediction feedback, hidden-state steering, and timestep gating](image/framework.png)](image/framework.pdf)
+
+The framework uses tentative responses to construct hidden-state steering signals (DF-Steering), while TS-Gate controls their contribution using feedback uncertainty and the denoising timestep. Click the figure to view the PDF.
 
 ## Tasks and Metrics
 
