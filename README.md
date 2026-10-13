@@ -4,23 +4,7 @@ TRACESTEER is a research project for mitigating hallucinations in diffusion lang
 
 The project includes training, feedback-based generation, and evaluation entry points designed for LLaDA and Dream, covering TruthfulQA, COPA, StoryCloze, MMLU, Winogrande, and BoolQ.
 
-## Method
 
-Feedback Flow operates as follows:
-
-1. Freeze the base language model and train only the added Feedback Flow module.
-2. During training, disable feedback and obtain an initial prediction for masked answer tokens. During generation, use predictions from the previous denoising iteration.
-3. Feed the predicted tokens back into the base model and extract hidden states from a designated layer as feedback features.
-4. Refine the current hidden states through cross-attention, self-attention, and a feed-forward network, sharing weights across Flow refinement steps.
-5. Compute a gate from the denoising timestep and the normalized entropy of the previous prediction, then apply residual corrections at response positions.
-
-The training objective combines cross-entropy over masked answer tokens with a hidden-state stability regularizer:
-
-```text
-loss = generation_loss + stability_weight × stability_loss
-```
-
-The stability term measures the mean squared difference between the original and corrected hidden states. Training selects the best Feedback Flow parameters by validation loss, saves them, and automatically evaluates the held-out test split. Use `--skip-test` to skip evaluation after training.
 
 ## Tasks and Metrics
 
