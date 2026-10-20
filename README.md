@@ -1,12 +1,12 @@
-# Anonymous Submission
+# TRACESTEER
 
-This repository contains research code for mitigating hallucinations in diffusion language models (DLLMs). Its core implementation, **Feedback Flow**, uses previous predictions to produce trainable residual corrections to Transformer hidden states, evaluated on TruthfulQA and multiple-choice benchmarks.
+TRACESTEER is a research project for mitigating hallucinations in diffusion language models (DLLMs). Its core implementation, **Feedback Flow**, uses previous predictions to produce trainable residual corrections to Transformer hidden states, evaluated on TruthfulQA and multiple-choice benchmarks.
 
 The project includes training, feedback-based generation, and evaluation entry points designed for LLaDA and Dream, covering TruthfulQA, COPA, StoryCloze, MMLU, Winogrande, and BoolQ.
 
 ## Framework
 
-[![Framework: prediction feedback, hidden-state steering, and timestep gating](image/framework.png)](image/framework.pdf)
+[![TRACESTEER framework: prediction feedback, hidden-state steering, and timestep gating](image/framework.png)](image/framework.pdf)
 
 The framework uses tentative responses to construct hidden-state steering signals (DF-Steering), while TS-Gate controls their contribution using feedback uncertainty and the denoising timestep. Click the figure to view the PDF.
 
@@ -178,7 +178,7 @@ For `--output-path ./logs/feedback_flow_llada.pt`, the default outputs are:
 ## Repository Structure
 
 ```text
-anonymous-code/
+TRACESTEER/
 ├── our_model/
 │   ├── feedback_flow.py             # FlowBlock, gating, model hooks, and parameter I/O
 │   ├── generate_feedback.py         # Generation using prediction feedback
