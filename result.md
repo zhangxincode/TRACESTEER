@@ -4,9 +4,9 @@
 
 ```bash
 python -m our_model.train_feedback_flow \
---model-dir /home/ /projects/HM_DLLM/llada-Instruct \
---data-path /home/ /projects/HM_DLLM/row_data/TruthfulQA_v1.csv \
---output-path /home/ /projects/HM_DLLM/code/our_model/logs/feedback_flow_mid_v2_fair.pt \
+--model-dir ./checkpoints/llada-Instruct \
+--data-path ./row_data/TruthfulQA_v1.csv \
+--output-path ./logs/feedback_flow_mid_v2_fair.pt \
 --epochs 5 \
 --batch-size 1 \
 --stability-weight 0.25 \
@@ -85,7 +85,7 @@ for copa:0.9265  storycloze: 94.26   mmlu:95.90  booq:92.62
 CUDA_VISIBLE_DEVICES=3 python our_model/our_model_otherdata/train_feedback_flow_otherdata.py \
   --dataset boolq \
   --backbone dream \
-  --model-dir /home/ /projects/HM_DLLM/dream-Instruct \
+  --model-dir ./checkpoints/dream-Instruct \
   --device cuda \
   --num-samples 817 \
   --seed 42 \
@@ -106,7 +106,7 @@ for wino:6393
 CUDA_VISIBLE_DEVICES=3 python our_model/our_model_otherdata/train_feedback_flow_otherdata.py \
   --dataset wino \
   --backbone dream \
-  --model-dir /home/ /projects/HM_DLLM/dream-Instruct \
+  --model-dir ./checkpoints/dream-Instruct \
   --device cuda \
   --num-samples 817 \
   --seed 42 \
@@ -128,32 +128,32 @@ CUDA_VISIBLE_DEVICES=3 python our_model/our_model_otherdata/train_feedback_flow_
 58.19 83.60     36.88 55.95 29.54
 ```
 bash
-CUDA_VISIBLE_DEVICES=2 python -m our_model.train_feedback_flow    --backbone dream    --model-dir /home/ /projects/HM_DLLM/dream-Instruct    --data-path /home/ /projects/HM_DLLM/row_data/TruthfulQA_v1.csv    --output-path /home/ /projects/HM_DLLM/code/our_model/logs/feedback_flow_dream_layer16_retrain.pt    --epochs 5    --batch-size 1    --lr 1e-4    --weight-decay 0.01    --stability-weight 0.29    --flow-scale 1.0    --mask-prob 1.0    --layer-idx 16    --feedback-layer-idx 16    --flow-steps 1    --timestep-gate-hidden 32    --steps 128    --test-gen-length 128    --test-steps 128    --test-block-length 4    --test-temperature 0.5    --test-dream-alg origin --test-cfg-scale 0    --test-flow-scale 0.25    --test-metrics all    --test-gpt-device cpu    --seed 42
+CUDA_VISIBLE_DEVICES=2 python -m our_model.train_feedback_flow    --backbone dream    --model-dir ./checkpoints/dream-Instruct    --data-path ./row_data/TruthfulQA_v1.csv    --output-path ./logs/feedback_flow_dream_layer16_retrain.pt    --epochs 5    --batch-size 1    --lr 1e-4    --weight-decay 0.01    --stability-weight 0.29    --flow-scale 1.0    --mask-prob 1.0    --layer-idx 16    --feedback-layer-idx 16    --flow-steps 1    --timestep-gate-hidden 32    --steps 128    --test-gen-length 128    --test-steps 128    --test-block-length 4    --test-temperature 0.5    --test-dream-alg origin --test-cfg-scale 0    --test-flow-scale 0.25    --test-metrics all    --test-gpt-device cpu    --seed 42
 ```
 
 ```
-(llada)  @server4:~/projects/HM_DLLM/code$ CUDA_VISIBLE_DEVICES=2 python -m our_model.train_feedback_flow    --backbone dream    --model-dir /home/ /projects/HM_DLLM/dream-Instruct    --data-path /home/ /projects/HM_DLLM/row_data/TruthfulQA_v1.csv    --output-path /home/ /projects/HM_DLLM/code/our_model/logs/feedback_flow_dream_layer16_retrain.pt    --epochs 5    --batch-size 1    --lr 1e-4    --weight-decay 0.01    --stability-weight 0.29    --flow-scale 1.0    --mask-prob 1.0    --layer-idx 16    --feedback-layer-idx 16    --flow-steps 1    --timestep-gate-hidden 32    --steps 128    --test-gen-length 128    --test-steps 128    --test-block-length 4    --test-temperature 0.5    --test-dream-alg origin --test-cfg-scale 0    --test-flow-scale 0.25    --test-metrics all    --test-gpt-device cpu    --seed 42
+CUDA_VISIBLE_DEVICES=2 python -m our_model.train_feedback_flow    --backbone dream    --model-dir ./checkpoints/dream-Instruct    --data-path ./row_data/TruthfulQA_v1.csv    --output-path ./logs/feedback_flow_dream_layer16_retrain.pt    --epochs 5    --batch-size 1    --lr 1e-4    --weight-decay 0.01    --stability-weight 0.29    --flow-scale 1.0    --mask-prob 1.0    --layer-idx 16    --feedback-layer-idx 16    --flow-steps 1    --timestep-gate-hidden 32    --steps 128    --test-gen-length 128    --test-steps 128    --test-block-length 4    --test-temperature 0.5    --test-dream-alg origin --test-cfg-scale 0    --test-flow-scale 0.25    --test-metrics all    --test-gpt-device cpu    --seed 42
 Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00, 70.02it/s]
-/home/ /anaconda3/envs/llada/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+<site-packages>/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
   warnings.warn(
-/home/ /anaconda3/envs/llada/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+<site-packages>/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
   warnings.warn(
 {"status": "starting_test", "split": "test"}
 Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00, 72.51it/s]
-/home/ /anaconda3/envs/llada/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
+<site-packages>/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`. This was detected when initializing the generation config instance, which means the corresponding file may hold incorrect parameterization and should be fixed.
   warnings.warn(
-/home/ /anaconda3/envs/llada/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+<site-packages>/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
   warnings.warn(
 Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:04<00:00,  1.16it/s]
-/home/ /anaconda3/envs/llada/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.95` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+<site-packages>/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.95` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
   warnings.warn(
-/home/ /anaconda3/envs/llada/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+<site-packages>/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
   warnings.warn(
 Evaluating test split: 100%|███████████████████████████████████████████████████████████| 122/122 [1:00:24<00:00, 29.71s/sample, index=815, sample=122/122]
 {
   "status": "test_complete",
-  "output_path": "/home/ /projects/HM_DLLM/code/our_model/logs/feedback_flow_dream_layer16_retrain.test.json",
-  "answers_output_path": "/home/ /projects/HM_DLLM/code/our_model/logs/feedback_flow_dream_layer16_retrain.test.answers.json",
+  "output_path": "./logs/feedback_flow_dream_layer16_retrain.test.json",
+  "answers_output_path": "./logs/feedback_flow_dream_layer16_retrain.test.answers.json",
   "summary": {
     "num_samples": 122,
     "gpt_judge": {

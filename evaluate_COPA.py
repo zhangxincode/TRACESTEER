@@ -13,17 +13,17 @@ from tqdm.auto import tqdm
 from transformers import AutoModel, AutoTokenizer
 
 
-MODEL_DIR = "/home/zhangxin/projects/HM_DLLM/llada-Instruct"
-COPA_DATA_PATH = "/home/zhangxin/projects/HM_DLLM/row_data/copa-all.xml"
-COPA_OUTPUT_PATH = "/home/zhangxin/projects/HM_DLLM/code/logs/copa_mc1.json"
-STORYCLOZE_DATA_PATH = "/home/zhangxin/projects/HM_DLLM/row_data/StoryCloze_test_spring2016.json"
-STORYCLOZE_OUTPUT_PATH = "/home/zhangxin/projects/HM_DLLM/code/logs/storycloze_mc1.json"
-MMLU_DATA_PATH = "/home/zhangxin/projects/HM_DLLM/row_data/mc_test_MMLU.csv"
-MMLU_OUTPUT_PATH = "/home/zhangxin/projects/HM_DLLM/code/logs/mmlu_mc1.json"
-WINO_DATA_PATH = "/home/zhangxin/projects/HM_DLLM/row_data/Wino.json"
-WINO_OUTPUT_PATH = "/home/zhangxin/projects/HM_DLLM/code/logs/wino_mc1.json"
-BOOLQ_DATA_PATH = "/home/zhangxin/projects/HM_DLLM/row_data/boolq_train.jsonl"
-BOOLQ_OUTPUT_PATH = "/home/zhangxin/projects/HM_DLLM/code/logs/boolq_mc1.json"
+MODEL_DIR = "./checkpoints/llada-Instruct"
+COPA_DATA_PATH = "./row_data/copa-all.xml"
+COPA_OUTPUT_PATH = "./logs/copa_mc1.json"
+STORYCLOZE_DATA_PATH = "./row_data/StoryCloze_test_spring2016.json"
+STORYCLOZE_OUTPUT_PATH = "./logs/storycloze_mc1.json"
+MMLU_DATA_PATH = "./row_data/mc_test_MMLU.csv"
+MMLU_OUTPUT_PATH = "./logs/mmlu_mc1.json"
+WINO_DATA_PATH = "./row_data/Wino.json"
+WINO_OUTPUT_PATH = "./logs/wino_mc1.json"
+BOOLQ_DATA_PATH = "./row_data/boolq_train.jsonl"
+BOOLQ_OUTPUT_PATH = "./logs/boolq_mc1.json"
 
 DATASET_DEFAULTS = {
     "boolq": (BOOLQ_DATA_PATH, BOOLQ_OUTPUT_PATH),

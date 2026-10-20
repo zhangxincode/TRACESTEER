@@ -1,0 +1,6 @@
+# Local metadata and generated artifacts
+.DS_Store
+._*
+__pycache__/
+*.pyc
+.pytest_cache/

@@ -1,4 +1,4 @@
-# Server: server4; environment: llada
+# Experiment dependency snapshot for anonymous review.
 # Versions recorded from the experiment environment's pip list.
 absl-py==2.5.0
 accelerate==1.13.0

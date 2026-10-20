@@ -1,12 +1,12 @@
-# TRACESTEER
+# Anonymous Submission
 
-TRACESTEER is a research project for mitigating hallucinations in diffusion language models (DLLMs). Its core implementation, **Feedback Flow**, uses previous predictions to produce trainable residual corrections to Transformer hidden states, evaluated on TruthfulQA and multiple-choice benchmarks.
+This repository contains research code for mitigating hallucinations in diffusion language models (DLLMs). Its core implementation, **Feedback Flow**, uses previous predictions to produce trainable residual corrections to Transformer hidden states, evaluated on TruthfulQA and multiple-choice benchmarks.
 
 The project includes training, feedback-based generation, and evaluation entry points designed for LLaDA and Dream, covering TruthfulQA, COPA, StoryCloze, MMLU, Winogrande, and BoolQ.
 
 ## Framework
 
-[![TRACESTEER framework: prediction feedback, hidden-state steering, and timestep gating](image/framework.png)](image/framework.pdf)
+[![Framework: prediction feedback, hidden-state steering, and timestep gating](image/framework.png)](image/framework.pdf)
 
 The framework uses tentative responses to construct hidden-state steering signals (DF-Steering), while TS-Gate controls their contribution using feedback uncertainty and the denoising timestep. Click the figure to view the PDF.
 
@@ -71,7 +71,7 @@ Model weights and datasets must be obtained separately; they are not included in
 - **Other datasets:** Data files compatible with the loaders in `evaluate_COPA.py`. Specify their location with `--data-path`.
 - **Generated-answer evaluation:** TruthfulQA GPT metrics use a Qwen3 8B evaluator by default. Configure `DEFAULT_EVAL_MODEL_DIR` in `model/steering_DLLM_.py` before training, or pass `--gpt-eval-model` for standalone evaluation. `--test-gpt-device cpu` controls only the evaluator device.
 
-Some modules contain preset paths. When reproducing experiments, explicitly specify model, data, and output paths, and check the evaluator configuration.
+Default model paths use `./checkpoints/`, data paths use `./row_data/`, and output paths use `./logs/`. When reproducing experiments, explicitly specify model, data, and output paths, and check the evaluator configuration.
 
 ## Training and Evaluation
 
@@ -178,7 +178,7 @@ For `--output-path ./logs/feedback_flow_llada.pt`, the default outputs are:
 ## Repository Structure
 
 ```text
-TRACESTEER/
+anonymous-code/
 ├── our_model/
 │   ├── feedback_flow.py             # FlowBlock, gating, model hooks, and parameter I/O
 │   ├── generate_feedback.py         # Generation using prediction feedback
@@ -219,4 +219,10 @@ Unit tests cover the feedback module, losses, and selected backbone-switching be
 
 ## Experiment Records
 
-`result.md` contains historical experiment commands and evaluation results. Before reusing these commands, replace model and data paths and correct any unquoted spaces in paths. The historical results have not yet been reproduced end to end with the current repository.
+`result.md` contains historical experiment commands and evaluation results with normalized paths. Before reusing these commands, configure model and data paths. The historical results have not yet been reproduced end to end with the current repository.
+
+## Anonymous Review
+
+The submitted source uses relative default paths and omits personal identifiers. Figure metadata has been removed. Runtime outputs are not automatically anonymized; inspect reports, checkpoints, and logs separately before sharing.
+
+Review free-form generated text and third-party logs before sharing. Exclude Git history, hidden workspace files, caches, and unreviewed artifacts from submissions.

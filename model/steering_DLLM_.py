@@ -28,9 +28,9 @@ from utils.load_data import load_truthfulqa
 from utils.metric_indector import gpt_info_metric, gpt_judge_metric, mc0_metric, mc1_metric, mc2_metric, mc3_metric
 
 
-DEFAULT_DATA_PATH = "/home/zhangxin/projects/HM_DLLM/row_data/TruthfulQA_v1.csv"
-DEFAULT_OUTPUT_PATH = "/home/zhangxin/projects/HM_DLLM/code/logs/truthfulqa_eval_scaling_fine.json"
-DEFAULT_EVAL_MODEL_DIR = "/home/zhangxin/projects/HM_DLLM/qwen3_8b"
+DEFAULT_DATA_PATH = "./row_data/TruthfulQA_v1.csv"
+DEFAULT_OUTPUT_PATH = "./logs/truthfulqa_eval_scaling_fine.json"
+DEFAULT_EVAL_MODEL_DIR = "./checkpoints/qwen3_8b"
 
 OPENAI_API_URL = ""
 OPENAI_API_KEY = ""

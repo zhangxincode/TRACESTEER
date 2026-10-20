@@ -25,8 +25,8 @@ from model.steering import ARTIFACT_VERSION, model_metadata, transformer_layers
 from utils.load_data import load_truthfulqa
 
 
-DEFAULT_DATA_PATH = "/home/zhangxin/projects/HM_DLLM/row_data/TruthfulQA_v1.csv"
-DEFAULT_OUTPUT_PATH = "/home/zhangxin/projects/HM_DLLM/code/logs/truthfulqa_steering.pt"
+DEFAULT_DATA_PATH = "./row_data/TruthfulQA_v1.csv"
+DEFAULT_OUTPUT_PATH = "./logs/truthfulqa_steering.pt"
 PROMPT_TEMPLATE = "tokenizer chat template with add_generation_prompt=True, followed by the answer text"
 
 

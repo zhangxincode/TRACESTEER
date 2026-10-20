@@ -38,7 +38,7 @@ except ImportError:  # pragma: no cover
     )
 
 
-MODEL_DIR = "/home/zhangxin/projects/HM_DLLM/llada-Instruct"
+MODEL_DIR = "./checkpoints/llada-Instruct"
 
 
 def feedback_model_logits(
@@ -315,7 +315,7 @@ def main() -> None:
     parser.add_argument("--flow-steps", type=int, default=3)
     parser.add_argument("--flow-scale", type=float, default=None)
     parser.add_argument("--flow-path")
-    parser.add_argument("--json-path", default="/home/zhangxin/projects/HM_DLLM/code/our_model/logs/feedback_flow_outputs.json")
+    parser.add_argument("--json-path", default="./logs/feedback_flow_outputs.json")
     args = resolve_backbone_args(parser.parse_args())
 
     model, tokenizer = load_backbone(args.model_dir, args.backbone)

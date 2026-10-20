@@ -6,7 +6,7 @@ import pandas as pd
 
 
 DEFAULT_TRUTHFULQA_PATH = Path(
-    "/home/zhangxin/projects/HM_DLLM/row_data/TruthfulQA_v1.csv"
+    "./row_data/TruthfulQA_v1.csv"
 )
 
 
